@@ -1,0 +1,13 @@
+extends layout
+ 
+mixin list-ord
+ ol 
+  each val in courses
+   li
+      a(href="/courses/"+val._id)= val.name
+ 
+block content
+  h1 Courses 
+  +list-ord
+  a.btn.btn-info(href="/courses/new") NEW
+  

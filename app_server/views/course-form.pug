@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1= title
+
+  .row
+    .col-12.col-md-8
+      form#addReview(action="", method="post", role="form")
+        - if (error == "val")
+          .alert.alert-danger(role="alert") All fields required, please try again
+        .form-group.row
+          label.col-10.col-sm-2.col-form-label(for="name") Name
+          .col-12.col-sm-10
+            input#name.form-control(name="name" value=(undefined===course ? '' : course.name))   
+        .form-group.row
+          label.col-10.col-sm-2.col-form-label(for="info") Info
+          .col-12.col-sm-10
+            textarea#review.form-control(name="info", rows="5")= (undefined===course ? '' : course.info)
+        button.btn.btn-primary.float-right Submit
+    .col-12.col-md-4
